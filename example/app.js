@@ -52,6 +52,11 @@ Ti.API.info(malcommodule.advanceConfigurationForKey("test"));
      
     }
   });
+
+    //  Metodos para enviar eventos
+
+    malcommodule.startSubBeaconWithName("testTitanium");
+    malcommodule.endSubBeaconWithName("testTitanium");
   
   //    Este metodo se llama al salir de la aplicacion para enviar los beacons recopilados
   malcommodule.endBeacon();

@@ -6,22 +6,22 @@ Titanium Module for Malcom
 Install
 -------
 
-* Copy com.mobivery.malcom-iphone-1.0.1.zip in /Library/Application Support/Titanium
+* Copy com.mobivery.malcom-iphone-1.0.2.zip in /Library/Application Support/Titanium
 * In your project, add this line in tiapp.xml:
 
-        <module version="1.0.1">com.mobivery.malcom</module>
+        <module version="1.0.2">com.mobivery.malcom</module>
         
         
 Use
 ---
 
-In first place, charge malcom module:
+First, you must add this line:
 
     var malcommodule = require('com.mobivery.malcom');
     
-With this method is charged configuration, alerts, interstitial and splash.
+With this method is charged the configuration, alerts, interstitial and splash.
 
-For access to advanced variables of configuration:
+To access to advanced variables of configuration:
 
     malcommodule.advanceConfigurationForKey("test");
     
@@ -60,12 +60,12 @@ Use this code:
 
 Stats:
 
-There are for methods:
+There are four methods:
 
 * malcommodule.initAndStartBeacon(true, true); <- Init stats module. First param is if send only with wifi, and second if you want send geolocation
 * malcommodule.endBeacon(); <- Send stats to Malcom
-* malcommodule.startBeacon("name") <- Init stats for a event
-* malcommodule.endBeacon("name") <- End stats for a event
+* malcommodule.startSubBeaconWithName("name"); <- Init stats for a event
+* malcommodule.endSubBeaconWithName("name"); <- End stats for a event
                           
 
 Ads:
