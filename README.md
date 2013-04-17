@@ -6,7 +6,7 @@ Titanium Module for Malcom
 Install
 -------
 
-* Copy com.mobivery.malcom-iphone-1.0.2.zip in /Library/Application Support/Titanium
+* Copy com.mobivery.malcom-iphone-1.0.2.zip in ~/Library/Application Support/Titanium
 * In your project, add this line in tiapp.xml:
 
         <module version="1.0.2">com.mobivery.malcom</module>
