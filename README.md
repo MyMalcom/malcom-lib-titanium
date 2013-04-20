@@ -6,10 +6,10 @@ Titanium Module for Malcom
 Install
 -------
 
-* Copy com.mobivery.malcom-iphone-1.0.2.zip in ~/Library/Application Support/Titanium
+* Copy com.mobivery.malcom-iphone-1.0.3.zip in ~/Library/Application Support/Titanium
 * In your project, add this line in tiapp.xml:
 
-        <module version="1.0.2">com.mobivery.malcom</module>
+        <module platform="iphone" version="1.0.3">com.mobivery.malcom</module>
         
         
 Use
@@ -66,6 +66,7 @@ There are four methods:
 * malcommodule.endBeacon(); <- Send stats to Malcom
 * malcommodule.startSubBeaconWithName("name"); <- Init stats for a event
 * malcommodule.endSubBeaconWithName("name"); <- End stats for a event
+* malcommodule.addTag('Tag'); <- Add a tag
                           
 
 Ads:
