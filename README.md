@@ -90,6 +90,10 @@ Install:
 
 * First, copy android/dist/com.mobivery.malcom.android-android-1.0.0.zip and android/dist/net.iamyellow.gcmjs-android-0.2.zip to your module folder in your project.
 * Copy all files of android/resources/ in "Resources" folder of your project.
+* Add in tiapp.xml this code:
+
+		<module platform="android" version="1.0.0">com.mobivery.malcom.android</module>
+		<module platform="android" version="0.2">net.iamyellow.gcmjs</module>
 
 Use:
 ------
