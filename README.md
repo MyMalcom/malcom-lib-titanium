@@ -1,7 +1,7 @@
 malcom-lib-titanium
 ===================
 
-Titanium Module for Malcom
+Titanium Module for iOS
 
 Install
 -------
@@ -83,3 +83,75 @@ This is the way to add a ads to a view:
     window.add(foo);
 
 In this moment only if support house ads, iAd and adMob.
+
+Titanium Module for Android
+--------------------------------------
+
+Install:
+--------
+
+* First, copy android/dist/com.mobivery.malcom.android-android-1.0.0.zip and android/dist/net.iamyellow.gcmjs-android-0.2.zip to your module folder in your project.
+* Copy all files of android/resources/ in "Resources" folder of your project.
+
+Use:
+------
+
+* Init malcom:
+
+	var malcomandroid = require('com.mobivery.malcom.android');
+	malcomandroid.initMalcom(UUID, SECRET_KEY);
+	
+	
+Stats:
+
+There are five methods:
+
+* malcomandroid.startBeacon(); <- Init stats module. First param is if send only with wifi, and second if you want send geolocation
+* malcomandroid.endBeacon(); <- Send stats to Malcom
+* malcomandroid.startBeaconWithName("name"); <- Init stats for a event
+* malcomandroid.endBeaconWithName("name"); <- End stats for a event
+* malcomandroid.addTag('Tag'); <- Add a tag
+
+Notifications:
+
+* All you have to do is copy this code after initializing Malcom:
+
+	var gcm = require('net.iamyellow.gcmjs');
+
+var pendingData = gcm.data;
+if (pendingData && pendingData !== null) {
+	
+	Ti.API.info("notificationId: "+Ti.App.Properties.getString("msg.notificationId"));
+	
+	malcomandroid.notificationACK(Titanium.Platform.id, Ti.App.Properties.getString("msg.notificationId"), Ti.App.Properties.getString("msg.segmentId"));
+	
+}
+
+gcm.registerForPushNotifications({
+	success: function (ev) {
+		// on successful registration
+		malcomandroid.notificationRegister(ev.deviceToken, Titanium.Platform.id, 0);
+	},
+	error: function (ev) {
+		// when an error occurs
+		Ti.API.info('******* error, ' + ev.error);
+	},
+	callback: function (data) {
+		// when a gcm notification is received WHEN the app IS IN FOREGROUND
+			alert(decodeURIComponent((data.msg+'').replace(/\+/g, '%20')));
+	},
+	unregister: function (ev) {
+		// on unregister 
+		Ti.API.info('******* unregister, ' + ev.deviceToken);
+	},
+	data: function (data) {
+		
+		Ti.API.info('******* data (resumed) ' + JSON.stringify(data));
+	}
+});
+
+
+
+* If you want unregister device use this method:
+
+	malcomandroid.notificationUnregister(Titanium.Platform.id);
